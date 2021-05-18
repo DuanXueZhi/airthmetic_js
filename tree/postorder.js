@@ -10,3 +10,14 @@ const postorder = (root) => {
 }
 
 postorder(bt);
+
+// 非递归版
+/**
+ * 将后序遍历：左右根，倒置，
+ * 形成：根右左（类似先序遍历）
+ * 先序遍历
+ * @param root
+ */
+const postorder2 = (root) => {
+
+}
