@@ -42,3 +42,16 @@ const bfs = (root) => {
 };
 
 bfs(tree);
+
+// 时间复杂度：O(n)，空间复杂度：O(n)，n：节点数
+const a = function(root) {
+  if (!root) return 0;
+  const q = [[root, 1]]; // 新建队列：[[[1, 2, 3, 4, 5], 1]]
+  while (q.length) {
+    const [n, l] = q.shift(); // 拿出队头
+    console.log(n.val);
+    if (!n.left && !n.right) return l;
+    if (n.left) q.push([ n.left, l + 1 ]);
+    if (n.right) q.push([ n.right, l + 1 ]);
+  }
+}
