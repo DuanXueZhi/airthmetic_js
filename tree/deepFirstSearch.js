@@ -28,7 +28,7 @@ const tree = {
       ]
     }
   ]
-}; 
+};
 
 const dfs = (root) => {
   console.log(root.val)
@@ -38,7 +38,7 @@ const dfs = (root) => {
 dfs(tree);
 
 // 时间复杂度：O(n)，时间复杂度：O(log n)O(n)，n是树的深度/x
-const a = function() {
+const a = function(root) {
   let res = 0;
   const dfs = (n, l) => { // l: 层级
     if (!n) return;
@@ -49,3 +49,25 @@ const a = function() {
   dfs(root, 1);
   return res;
 };
+
+const b = function(root, targetSum) {
+  if (!root) return false;
+  const initSum = 0;
+  const sumList = []; // 路径和数组
+  const dfs = (point, sum) => {
+    sum += point.val;
+    if (point.left) {
+      dfs(point.left, sum);
+    }
+
+    if (point.right) {
+      dfs(point.right, sum);
+    }
+
+    if (!point.left && !point.right) {
+      sumList.push(sum);
+    }
+  }
+  dfs(root, initSum);
+  return sumList.includes(targetSum);
+}
