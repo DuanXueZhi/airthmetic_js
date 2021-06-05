@@ -50,9 +50,9 @@ const a = function(root) {
   return res;
 };
 
+// 时间复杂度：O(n)，空间复杂度：O(n)，O(log n)
 const b = function(root, targetSum) {
   if (!root) return false;
-  const initSum = 0;
   const sumList = []; // 路径和数组
   const dfs = (point, sum) => {
     sum += point.val;
@@ -68,6 +68,6 @@ const b = function(root, targetSum) {
       sumList.push(sum);
     }
   }
-  dfs(root, initSum);
+  dfs(root, 0);
   return sumList.includes(targetSum);
 }
