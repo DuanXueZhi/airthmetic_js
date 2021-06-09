@@ -47,9 +47,10 @@ function a(s) {
     return state === 3 || state === 5 || state === 6;
 }
 
+// 时间复杂度：m*n，空间复杂度：m*n，（两个m*n的矩阵存储数据）
 function pacificAtlantic(heights) {
     // 从海岸线遍历矩阵，逆向寻找可以到达该海岸线的大陆，找到能达到两洋的点
-    if (!heights || heights[0]) return [];
+    if (!heights || !heights[0]) return [];
     const m = heights.length; // row
     const n = heights[0].length; // column
     // 初始化行为m，列为n的全是false的数组
@@ -92,4 +93,42 @@ function pacificAtlantic(heights) {
         }
     }
     return res;
+}
+
+// 时间复杂度：O(n)，空间复杂度：O(n)
+function cloneGraph(node) {
+    if (!node) return;
+    const visited = new Map(); // 存储访问过的节点
+    const dfs = (n) => {
+        const nCopy = new Node(n.val); // Node提前定义的类，clone节点
+        visited.set(n, nCopy); // 存储key: 原节点，value: 拷贝后的节点
+        (n.neighbors || []).forEach(ne => { // 防止n.neighbors为undefined
+            if (!visited.has(ne)) {
+                dfs(ne);
+            }
+            nCopy.neighbors.push(visited.get(ne));
+        })
+    }
+    dfs(node);
+    return visited.get(node);
+}
+
+// 广度优先遍历做法
+function cloneGraph1(node) {
+    if (!node) return;
+    const q = [node];
+    const visited = new Map();
+    visited.set(node, new Node(node.val));
+    while (q.length) {
+        const n = q.shift();
+        console.log(n.val);
+        (n.neighbors || []).forEach(ne => {
+            if (!visited.has(ne)) {
+                q.push(ne);
+                visited.set(ne, new Node(ne.val));
+            }
+            visited.get(n).neighbors.push(visited.get(ne));
+        });
+    }
+    return visited.get(node);
 }
