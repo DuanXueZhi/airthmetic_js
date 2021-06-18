@@ -22,7 +22,7 @@ Array.prototype.mergeSort = function () {
     return res;
   };
   const res = rec(this);
-  res.forEach((n, i) => { this[i] = n; });
+  res.forEach((n, i) => { this[i] = n; }); // 赋值到this上
 };
 
 const arr = [2, 5, 3, 6, 7];
