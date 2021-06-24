@@ -36,3 +36,27 @@
  * 贪心算法：期盼通过每个阶段的‘局部最优’选择，从而达到全局的最优（结果‘不一定是最优’）
  * 最求局部最优
  */
+
+/**
+ * 回溯算法：‘渐进式’寻找构建问题解决方法的策略
+ * 先从一个可能的动作开始解决问题，如果不行，就回溯并选择另一个动作，直到将问题解决
+ * 适合问题：有很多路、有死路也有出路、通常需要递归模拟所有路。全排列、子集
+ */
+// 回溯算法，子集
+function subsets(nums) {
+  const res = [];
+  const backtrack = (path, l, start) => {
+    if (path.length === l) {
+      res.push(path);
+      return;
+    }
+    for (let i = start; i < nums.length; i++) {
+      backtrack(path.concat(nums[i]), l, i + 1);
+    }
+  };
+  for (let i = 0; i <= nums.length; i++) {
+    backtrack([], i, 0)
+  }
+  return res;
+}
+console.log(subsets([1, 2, 3]));
