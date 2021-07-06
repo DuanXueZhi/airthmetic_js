@@ -43,6 +43,18 @@ const bfs = (root) => {
 
 bfs(tree);
 
+// 迭代
+const bfs1 = (root) => {
+  const q = [];
+  root.forEach(e => {
+    console.log(e.val);
+    q.push(...e.children);
+  })
+  !q.length || bfs1(q);
+}
+
+bfs1([tree]);
+
 // 时间复杂度：O(n)，空间复杂度：O(n)，n：节点数
 const a = function(root) {
   if (!root) return 0;
