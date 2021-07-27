@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head></head>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 <body>
     <p>hash test</p>
     <button id="btn1">修改 hash</button>
@@ -10,11 +13,11 @@
         // a. JS 修改 url
         // b. 手动修改 url 的 hash
         // c. 浏览器前进、后退
-        window.onhashchange = (event) => {
+        window.onhashchange = (event) => { // 监听 hash 变化
             console.log('old url', event.oldURL);
             console.log('new url', event.newURL);
-            
-            console.log('hash', location.hash);
+
+            console.log('hash', location.hash); // 获取当前 hash
         }
 
         // 页面初次加载，获取 hash

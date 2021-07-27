@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <p>history test</p>
+  <button id="btn1">修改 hash</button>
+
+  <script>
+    // 首次加载，获取 path
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('load:', location.pathname);
+    })
+
+    // 打开一个新路由
+    // 【注意】用 pushState 方式，浏览器不会刷新页面
+    document.getElementById('btn1').addEventListener('click', () => {
+      const state = { name: 'page1' } // 浏览器前进、后退可以带值
+      console.log('切换路由到', 'page1') // 改变页面
+      history.pushState(state, '', 'page1') // 重要
+    })
+
+    // 监听浏览器前进、后退【获取 pushState() 传来的参数】
+    window.onpopstate = (event) => { // 重要
+      console.log('onpopstate', event.state, location.pathname) // pushState 第一个参数
+    }
+
+    // 需要 server 配合，无论访问什么路由都返回一个固定页面
+  </script>
+</body>
+</html>
