@@ -48,7 +48,7 @@ console.log(func.call()); // undefined
 
 // 手写trim()
 String.prototype.trim1 = function() {
-  return this.replace(/^\s+/, '').replace(/\s+$/, '');
+  return this.replace(/^\s+/, '').replace(/\s+$/, ''); // 首尾空格替换
 }
 console.log('  abc  '.trim1()) // abc
 

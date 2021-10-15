@@ -4,9 +4,9 @@ const bt = require('./bt');
 // 递归版
 const postorder = (root) => {
     if (!root) return
-    postorder(root.left);
-    postorder(root.right);
-    console.log('1', root.val);
+    postorder(root.left); // 左
+    postorder(root.right); // 右
+    console.log('1', root.val); // 中
 }
 
 postorder(bt);

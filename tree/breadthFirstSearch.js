@@ -38,7 +38,7 @@ const bfs = (root) => {
     n.children.forEach(child => {
       q.push(child); // 其children入队
     });
-  };
+  }
 };
 
 bfs(tree);
@@ -54,6 +54,41 @@ const bfs1 = (root) => {
 }
 
 bfs1([tree]);
+
+const tree1 = {
+  val: 'a',
+  left: {
+    val: 'b',
+    left: {
+      val: 'd'
+    },
+    right: {
+      val: 'e'
+    }
+  },
+  right: {
+    val: 'c',
+    left: {
+      val: 'f'
+    },
+    right: {
+      val: 'g'
+    }
+  }
+};
+
+const bfs2 = (p) => {
+  if (!p) return;
+  const arr = [];
+  p.forEach(e => {
+    console.log('左右：', e.val);
+    if (e.left) arr.push(e.left);
+    if (e.right) arr.push(e.right);
+  })
+  !arr.length || bfs2(arr);
+}
+
+bfs2([tree1]);
 
 // 时间复杂度：O(n)，空间复杂度：O(n)，n：节点数
 const a = function(root) {

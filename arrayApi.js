@@ -49,7 +49,7 @@ const arr = [10, 20, 30, 40];
 
 // const res = [10, 20, 30].map(parseInt);
 // console.log(res); // [ 10, NaN, NaN ]
-// // parseInt(string, radix) // 这里的意思就是用radix进制去解析string，且忽略不能转换为数字的字符及之后的字符
+// // parseInt(string, radix) // 这里的意思就是用 radix 进制（比如 radix = 2）去解析 string，且忽略不能转换为数字的字符及之后的字符
 // // 拆解
 // [10, 20, 30].map((num, index) => {
 //   return parseInt(num, index);
@@ -88,10 +88,21 @@ function deepClone(obj = {}) {
     obj = {};
   }
   for (let key in obj) {
-    if (obj.hasOwnProperty(key)) { // 保证 key 不是原始属性
+    if (obj.hasOwnProperty(key)) { // 保证 key 不是原始属性，hasOwnProperty：true（自身属性没有此键），false（自身属性有此键）
       result[key] = deepClone(obj[key]) // 迭代
     }
   }
   return result;
 }
 
+// Object.assign 浅拷贝
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target);
+// expected output: Object { a: 1, b: 4, c: 5 }
+
+console.log(returnedTarget);
+// expected output: Object { a: 1, b: 4, c: 5 }

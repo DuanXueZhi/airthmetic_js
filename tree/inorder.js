@@ -4,9 +4,9 @@ const bt = require('./bt');
 // 递归版
 const inorder = (root) => {
     if (!root) return
-    inorder(root.left);
-    console.log(root.val);
-    inorder(root.right);
+    inorder(root.left); // 左
+    console.log(root.val); // 中
+    inorder(root.right); // 右
 }
 
 inorder(bt);

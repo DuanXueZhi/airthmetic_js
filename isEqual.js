@@ -24,3 +24,13 @@ console.log(isEqual(obj1, obj2));
 
 console.log('1-2-3'.split('-')); // ['1', '2', '3']
 console.log([1, 2, 3].join('-')); // 1-2-3
+
+const arr = [1, 2, 3, 4, 5];
+console.log(arr.slice(2)); // [3, 4, 5]
+console.log(arr); // [1, 2, 3, 4, 5]，原数组不变
+
+// console.log(arr.splice(2)); // [3, 4, 5]
+// console.log(arr); // [1, 2]，原数组改变
+
+console.log(arr.join('-'));
+console.log(arr);
