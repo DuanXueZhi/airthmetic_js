@@ -10,6 +10,7 @@ Array.prototype.bubbleSort = function () { // 冒泡排序绑定到数组原型�
       }
     }
   }
+  console.log(this);
 };
 
 const arr = [2, 5, 3, 6, 7];

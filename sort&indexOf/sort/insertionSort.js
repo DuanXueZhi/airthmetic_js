@@ -16,5 +16,5 @@ Array.prototype.insertionSort = function () {
   console.log(this);
 };
 
-const arr = [2, 5, 3, 6, 7];
+const arr = [7, 5, 3, 6, 2];
 arr.insertionSort();

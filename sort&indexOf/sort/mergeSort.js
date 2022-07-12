@@ -12,7 +12,7 @@ Array.prototype.mergeSort = function () {
     const res = [];
     while (orderLeft.length || orderRight.length) {
       if (orderLeft.length && orderRight.length) {
-        res.push(orderLeft[0] < orderRight[0] ? orderLeft.shift() : orderRight.shift());
+        res.push(orderLeft[0] < orderRight[0] ? orderLeft.shift() : orderRight.shift()); // 只比较队头，也只操作队头
       } else if (orderLeft.length) {
         res.push(orderLeft.shift());
       } else if (orderRight.length) {

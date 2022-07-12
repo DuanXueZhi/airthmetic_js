@@ -1,3 +1,4 @@
+// 二分查找
 // 时间复杂度：O(log N) 每次搜索都是原来的一半
 Array.prototype.binarySearch = function(target) {
   // 必须是有序数组
